@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="script.js"></script>
 </head>
 <body>
-    
+    <div class="tracking-tighter">
+        <div class="p-5  flex justify-between">
+            <h1 class="text-2xl ">Expense-Tracker</h1>
+            <button name="theme-toggle" class="bg-zinc-800 text-white p-2 rounded-md ">🌙 Dark Mode</button>
+        </div>
+        <div class="flex justify-center ">
+            <form action="" class="flex flex-col gap-3 w-1/2">
+                <input type="text" placeholder="Enter your expense..." class="p-2 border border-gray-300 rounded-md">
+                <input type="text" placeholder="Category..." class="p-2 border border-gray-300 rounded-md">
+                <input type="text" placeholder="Note..." class="p-2 border border-gray-300 rounded-md">
+                <input type="button" value="Add Expense" class="p-2 border border-gray-300 rounded-md bg-yellow-400 w-1/4 mx-auto">
+                <div>Total Expense : <span id="total-amount">0</span></div>
+            </form>            
+        </div>
+        <div class="flex justify-center mt-5">
+            <ul id="expense-list" class="mt-10 text-xl list-disc pl-5">
+                <li class="type-radio">No expenses added yet.</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
