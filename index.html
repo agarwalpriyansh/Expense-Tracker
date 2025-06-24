@@ -1,37 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-        darkMode: 'class',
-        };
-   </script>
-    <script src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Expense Tracker</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+
+  <!-- Link to your JS file -->
+  <script defer src="script.js"></script>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white transition-colors duration-300">
-    <div class="tracking-tighter">
-        <div class="p-5  flex justify-between">
-            <h1 class="text-2xl ">Expense-Tracker</h1>
-            <button id="theme-toggle" class="bg-zinc-800 text-white p-2 rounded-md ">🌙 Dark Mode</button>
-        </div>
-        <div class="flex justify-center ">
-            <form action="" class="flex flex-col gap-3 w-1/2 ">
-                <input type="text" id="expense" placeholder="Enter your expense..." class="p-2 border border-gray-300 rounded-md dark:bg-gray-800 bg-white dark:text-white transition-colors duration-300">
-                <input type="text" id="Category" placeholder="Category..." class="p-2 border border-gray-300 rounded-md dark:bg-gray-800 bg-white dark:text-white transition-colors duration-300">
-                <input type="text" id="Note" placeholder="Note..." class="p-2 border border-gray-300 rounded-md dark:bg-gray-800 bg-white dark:text-white transition-colors duration-300">
-                <input type="button" id="AddExpense" value="Add Expense" class="p-2 border border-gray-300 rounded-md bg-yellow-400 w-1/4 mx-auto">
-                <div>Total Expense : <span id="total-amount">0</span></div>
-            </form>            
-        </div>
-        <div class="flex justify-center mt-5">
-            <ul id="expense-list" class="mt-10 text-xl list-disc pl-5">
-                <li class="type-radio">No expenses added yet.</li>
-            </ul>
-        </div>
+
+  <div class="tracking-tighter min-h-screen">
+    
+    <!-- Header -->
+    <div class="p-5 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">💸 Expense Tracker</h1>
+      <button id="theme-toggle" class="bg-zinc-800 text-white px-4 py-2 rounded-md">
+        🌙 Dark Mode
+      </button>
     </div>
+
+    <!-- Form -->
+    <div class="flex justify-center">
+      <form id="expense-form" class="flex flex-col gap-3 w-full max-w-md p-4">
+        <input type="number" id="amount" placeholder="Enter amount..." 
+               class="p-2 border border-gray-300 rounded-md bg-white dark:bg-gray-800 dark:text-white"/>
+
+        <input type="text" id="category" placeholder="Category..." 
+               class="p-2 border border-gray-300 rounded-md bg-white dark:bg-gray-800 dark:text-white"/>
+
+        <input type="text" id="note" placeholder="Note (optional)..." 
+               class="p-2 border border-gray-300 rounded-md bg-white dark:bg-gray-800 dark:text-white"/>
+
+        <input type="button" id="AddExpense" value="Add Expense" 
+               class="p-2 bg-yellow-400 rounded-md cursor-pointer w-1/2 mx-auto hover:bg-yellow-500 transition"/>
+
+        <div id="total-amount" class="text-center font-semibold mt-2">
+          Total: ₹0.00
+        </div>
+      </form>
+    </div>
+
+    <!-- Expense List -->
+    <div class="flex justify-center mt-5">
+      <ul id="expense-list" class="w-full max-w-md mt-6 space-y-3">
+      </ul>
+    </div>
+
+  </div>
 </body>
 </html>
