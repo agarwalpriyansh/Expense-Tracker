@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderExpense(expense) {
     const li = document.createElement("li");
     li.className = "flex justify-between items-center p-3 bg-white dark:bg-gray-800 rounded shadow";
-    li.innerHTML = `<span>${expense.amount.toFixed(2)} - ${expense.category} - ${expense.note}</span>`;
+    li.innerHTML = `<span>${expense.amount.toFixed(2)} - ${expense.category} - ${expense.note}</span> <button class="delete-btn text-red-500">🗑️</button>`;
     expenseList.appendChild(li);
   }
 
@@ -66,4 +66,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
     totalDisplay.textContent = `Total: ₹${total.toFixed(2)}`;
   }
+
+  // Event delegation on expense list
+expenseList.addEventListener("click", function (e) {
+   if (e.target.tagName === "BUTTON" && e.target.classList.contains("delete-btn")) {
+    const li = e.target.closest("li");
+    const amount = parseFloat(li.firstChild.textContent.split(" - ")[0]);
+    expenses = expenses.filter(expense => expense.amount !== amount);
+    li.remove();
+    updateTotal();
+  }
 });
+
+})
